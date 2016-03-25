@@ -37,14 +37,14 @@ window.app = (function(window){
             elRgb.style.color = '#222';
 
             elAuthor.style.color = '#222';
-            elHeart.style.fill = '#222';
+            elHeart.style.stroke = '#222';
         } else {
             elResult.style.color = '#fff';
             elHsl.style.color = '#fff';
             elRgb.style.color = '#fff';
 
             elAuthor.style.color = '#fff';
-            elHeart.style.fill = '#fff';
+            elHeart.style.stroke = '#fff';
         }
 
         elResult.innerHTML = color.toHEX();
