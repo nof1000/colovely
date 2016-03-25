@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: #ff1744;
+    width: 100%;
+    height: 100%;
+    font-size: normal 18pt/100% 'quicksand', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+.preloader {
+    position: fixed;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: #ff1744;
+    width: 100%;
+    height: 100%;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 99999;
+}
+
+.preloader.loaded {
+    -webkit-animation: intro-loaded 1s ease-in-out;
+            animation: intro-loaded 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+.preloader .logo { width: 16em; }
+.preloader .logo .elem {
+    fill: rgba(255, 255, 255, 0);
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-dashoffset: 400;
+    stroke-dasharray: 400;
+    -webkit-animation: intro 2.5s ease-in-out;
+            animation: intro 2.5s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+.preloader .wait { width: 2em; }
+.preloader .wait .elem {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 10;
+    stroke-dasharray: 200;
+    -webkit-animation: stroke 5s linear infinite;
+            animation: stroke 5s linear infinite;
+}
+
+main {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+main .wrapper { position: relative; display: block; text-align: center; }
+main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-transform: uppercase; }
+
+main .other {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 200%;
+    right: -50%;
+}
+
+main .other p {
+    font-size: 1.25em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    left: 0; bottom: 0;
+}
+
+footer .share { float: left; margin: 2em; }
+footer .author { float: right; margin: 2em; }
+
+footer .author a {
+    text-decoration: none;
+    font: bold 1em 'quicksand', sans-serif;
+    color: #fff;
+}
+
+footer .heart {
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    left: .1em; top: .4em;
+}
+
+footer .heart .elem {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 14;
+    stroke-dasharray: 400;
+    -webkit-animation: stroke 5s ease infinite;
+            animation: stroke 5s ease infinite;
+}
+
+footer .author a:hover { color: black; }
+footer .author a:hover .elem { fill: black; -webkit-animation: none; animation: none; }

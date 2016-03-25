@@ -1,0 +1,31 @@
+@-webkit-keyframes intro {
+    0% { stroke-dashoffset: 400; }
+    75% { fill: rgba(255, 255, 255, 1); }
+    100% { stroke-dashoffset: 0; fill: rgba(255, 255, 255, 1); }
+}
+
+@keyframes intro {
+    0% { stroke-dashoffset: 400; }
+    75% { fill: rgba(255, 255, 255, 1); }
+    100% { stroke-dashoffset: 0; fill: rgba(255, 255, 255, 1); }
+}
+
+@-webkit-keyframes intro-loaded {
+    from { opacity: 1; filter: alpha(opacity=100); margin-top: 0; }
+    to { opacity: 0; filter: alpha(opacity=0); display: none; margin-top: -100%; }
+}
+
+@keyframes intro-loaded {
+    from { opacity: 1; filter: alpha(opacity=100); margin-top: 0; }
+    to { opacity: 0; filter: alpha(opacity=0); display: none; margin-top: -100%; }
+}
+
+@-webkit-keyframes stroke {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 800; }
+}
+
+@keyframes stroke {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 800; }
+}

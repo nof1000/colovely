@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Colovely</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.75"/>
+
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-title" content="Colovely"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff1744"/>
+
+        <meta name="theme-color" content="#ff1744">
+
+        <meta name="description" content="Simple colorful HEX, RGB, HSL generator!"/>
+        <meta name="keywords" content="colovely, colors, colours, color, colour, color inspiration, colour inspiration, random, rgb, hsl, hex, random rgb, random rgb generator, random hsl, random hsl generator random hex generator, random hex, hex generator, simple hex generator, git, github, source, source code, code"/>
+
+        <meta property="og:title" content="Colorrrs" />
+        <meta property="og:image" content="static/images/apple-touch-icon.png" />
+        <meta property="og:description" content="Simple colorful HEX, RGB, HSL generator!" />
+        <meta property="og:url" content="http://colovely.nofach.com" />
+
+        <link rel="shortcut icon" href="./favicon.png">
+
+        <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600,700,900,500,300,200' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="./stylesheet/animations.css"/>
+        <link rel="stylesheet" href="./stylesheet/fonts.css"/>
+        <link rel="stylesheet" href="./stylesheet/app.css"/>
+        <script>
+            (function(window){
+                document.addEventListener('DOMContentLoaded', function(){
+                    document.querySelector('.preloader').className += ' loaded';
+                });
+            })(this);
+        </script>
+    </head>
+    <body>
+        <div class="preloader">
+            <svg class="logo" viewBox="0 0 128 36">
+                <use class="elem" xlink:href="./asset/image/colovely.svg#path" x="0" y="0" width="128" height="36"/>
+            </svg>
+            <svg class="wait" viewBox="0 0 128 128">
+                <circle class="elem" cx="50%" cy="50%" r="60"/>
+            </svg>
+        </div>
+        <main role="main">
+            <div class="wrapper">
+                <p class="result">#ff1744</p>
+                <div class="other">
+                    <p class="hsl">hsl(348, 91%, 100%)</p>
+                    <p class="rgb">rgb(255, 23, 68)</p>
+                </div>
+            <div>
+        </main>
+        <footer>
+            <div class="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://colovely.nofach.com/" data-text="i'll generate HEX only on colovely!" data-size="large" data-related="Nof1000" data-hashtags="colovery">Tweet</a>
+                <a class="github-button" href="https://github.com/nof1000/colovely" data-icon="octicon-star" data-style="mega" data-count-href="/nof1000/colovely/stargazers" data-count-api="/repos/nof1000/colovely#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star nof1000/colovely on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/nof1000/colovely/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/nof1000/colovely/network" data-count-api="/repos/nof1000/colovely#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork nof1000/colovely on GitHub">Fork</a>
+            </div>
+            <div class="author">
+                <a href="//nofach.com/" target="_blank">
+                    made with
+                    <svg class="heart" viewBox="-8 -8 144 144">
+                        <use class="elem" xlink:href="./asset/image/heart.svg#path" x="0" y="0" width="128" height="128"/>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+
+        <!-- IMAGINATION OF JAVASCRIPT -->
+        <script src="./javascript/utility.js"></script>
+        <script src="./javascript/color.js"></script>
+        <script src="./javascript/app.js"></script>
+
+        <!-- Twitter, Github, etc... -->
+        <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </body>
+    <!-- DEVELOPMENT -->
+    <script src="http://localhost:35729/livereload.js"></script>
+</html>
