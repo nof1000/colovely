@@ -25,7 +25,7 @@ window.util = (function(window){
                 isEnd = true;
             }
 
-            value = fraction; //Math.pow(fraction, 2);
+            value = Math.pow(fraction, 2);
             for (var prop in options['values']) {
                 properties[prop] = options['values'][prop][0] + (value * (options['values'][prop][1] - options['values'][prop][0]));
             }

@@ -7,6 +7,9 @@ window.app = (function(window){
     var elHsl = document.querySelector('.hsl');
     var elRgb = document.querySelector('.rgb');
 
+    var elAuthor = document.querySelector('.author a');
+    var elHeart = document.querySelector('.heart use');
+
     color.fromHEX('#ff1744');
 
     function randly() {
@@ -25,6 +28,24 @@ window.app = (function(window){
         rgb.push(color.toRGB(true));
         hsl.push(color.toHSL(true));
         hex.push(color.toHEX(true));
+
+        var brig = (rgb[1].r * 299 + rgb[1].g * 587 + rgb[1].b * 114) / 1000;
+
+        if (brig > 125) {
+            elResult.style.color = '#222';
+            elHsl.style.color = '#222';
+            elRgb.style.color = '#222';
+
+            elAuthor.style.color = '#222';
+            elHeart.style.fill = '#222';
+        } else {
+            elResult.style.color = '#fff';
+            elHsl.style.color = '#fff';
+            elRgb.style.color = '#fff';
+
+            elAuthor.style.color = '#fff';
+            elHeart.style.fill = '#fff';
+        }
 
         elResult.innerHTML = color.toHEX();
         elHsl.innerHTML = color.toHSL();

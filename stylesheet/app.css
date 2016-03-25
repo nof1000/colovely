@@ -14,7 +14,7 @@ html, body {
     background: #ff1744;
     width: 100%;
     height: 100%;
-    font-size: normal 18pt/100% 'quicksand', sans-serif;
+    font-size: bold 18pt/100% 'quicksand', sans-serif;
     color: #fff;
     overflow: hidden;
 }
@@ -102,8 +102,8 @@ main .other {
 }
 
 main .other p {
-    font-size: 1.25em;
-    font-weight: normal;
+    font-size: 1.3em;
+    font-weight: bold;
     text-transform: none;
 }
 
@@ -114,8 +114,8 @@ footer {
 }
 
 footer .share { float: left; margin: 2em; }
-footer .author { float: right; margin: 2em; }
 
+footer .author { float: right; margin: 2em; }
 footer .author a {
     text-decoration: none;
     font: bold 1em 'quicksand', sans-serif;
