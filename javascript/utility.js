@@ -1,41 +1,6 @@
 window.util = (function(window){
     'use strict';
 
-    function anim(options, callback) {
-        var properties = {};
-        var start = performance.now();
-        var isEnd = false;
-
-        options = options || {};
-        options['duration'] = options['duration'] || 1000;
-        options['values'] = options['values'] || {};
-
-        if (options['from'] && options['to']) {
-            options['values']['default'] = [
-                options['from'],
-                options['to']
-            ];
-        }
-
-        requestAnimationFrame(function frame(time){
-            var fraction = (time - start) / options.duration;
-            var value = 0;
-            if (fraction > 1) {
-                fraction = 1;
-                isEnd = true;
-            }
-
-            value = Math.pow(fraction, 2);
-            for (var prop in options['values']) {
-                properties[prop] = options['values'][prop][0] + (value * (options['values'][prop][1] - options['values'][prop][0]));
-            }
-
-            callback(properties, isEnd);
-
-            if (fraction < 1) requestAnimationFrame(frame);
-        });
-    }
-
     function frand(min, max) {
         return (min + (Math.random() * max + 1 - min));
     }
@@ -49,8 +14,11 @@ window.util = (function(window){
         return val.toString(16);
     }
 
+    window.$ = function(query, elem) { return (elem) ? elem.querySelector(query) : document.querySelector(query); }
+    window.$$ = function(query, elem) { return (elem) ? elem.querySelectorAll(query) : document.querySelectorAll(query); }
+    window.$id = function(id, elem) { return (elem) ? elem.getElementById(id) : document.getElementById(id); }
+
     return {
-        anim: anim,
         frand: frand,
         rand: rand,
         byte: byte,

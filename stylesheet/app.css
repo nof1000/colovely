@@ -5,48 +5,34 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
+    outline: none;
 }
 
 html, body {
     background: #ff1744;
     width: 100%;
     height: 100%;
-    font-size: bold 18pt/100% 'quicksand', sans-serif;
+    font-size: bold 18pt/100% 'quicksand', 'Open Sans', sans-serif;
     color: #fff;
     overflow: hidden;
 }
 
 .preloader {
     position: fixed;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     background: #ff1744;
     width: 100%;
     height: 100%;
-    -webkit-flex-flow: column;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     z-index: 99999;
 }
 
 .preloader.loaded {
-    -webkit-animation: intro-loaded 1s ease-in-out;
-            animation: intro-loaded 1s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation: intro-loaded 1s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .preloader .logo { width: 16em; }
@@ -56,10 +42,8 @@ html, body {
     stroke-width: 0.5;
     stroke-dashoffset: 400;
     stroke-dasharray: 400;
-    -webkit-animation: intro 2.5s ease-in-out;
-            animation: intro 2.5s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation: intro 1.25s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .preloader .wait { width: 2em; }
@@ -68,26 +52,16 @@ html, body {
     stroke: #fff;
     stroke-width: 10;
     stroke-dasharray: 200;
-    -webkit-animation: stroke 5s linear infinite;
-            animation: stroke 5s linear infinite;
+    animation: stroke 5s linear infinite;
 }
 
 main {
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
     height: 100%;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 main .wrapper { position: relative; display: block; text-align: center; }
@@ -113,10 +87,10 @@ footer {
     left: 0; bottom: 0;
 }
 
-footer .share { float: left; margin: 2em; }
+footer .share { float: left; margin: 1.5em; }
 
-footer .author { float: right; margin: 2em; }
-footer .author a {
+footer .made { float: right; margin: 1.5em; }
+footer .made a {
     text-decoration: none;
     font: bold 1em 'quicksand', sans-serif;
     color: #fff;
@@ -134,9 +108,11 @@ footer .heart .elem {
     stroke: #fff;
     stroke-width: 14;
     stroke-dasharray: 400;
-    -webkit-animation: stroke 5s ease infinite;
-            animation: stroke 5s ease infinite;
+    animation: stroke 5s ease infinite;
 }
 
-footer .author a:hover { color: black; }
-footer .author a:hover .elem { fill: black; -webkit-animation: none; animation: none; }
+footer .made a:hover { color: black; }
+footer .made a:hover .elem { fill: white; animation: none; }
+
+footer .made a.black .elem { stroke: black; }
+footer .made a.black:hover .elem { fill: black; animation: none; }

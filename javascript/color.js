@@ -93,10 +93,8 @@ window.color = (function(window){
             s = 0;
             h = Number.NaN;
         } else {
-            s = (l < 0.5) ?
-                (max - min) / (max + min)
-                :
-                (max - min) / (2 - max - min);
+            if (l < 0.5) s = (max - min) / (max + min);
+            else s = (max - min) / (2 - max - min);
         }
 
         switch (max) {
@@ -108,34 +106,38 @@ window.color = (function(window){
         h *= 60;
         h += (h < 0) ? 360 : 0;
 
-        return (!val) ?
-            color.formatHSL(h ^ 0, (s * 100) ^ 0, (l * 100) ^ 0)
-            :
-            {h: (h ^ 0), s: (s * 100) ^ 0, l: (l * 100) ^ 0};
+        if (!val) return color.formatHSL(h ^ 0, (s * 100) ^ 0, (l * 100) ^ 0);
+        else return { h: (h ^ 0), s: (s * 100) ^ 0, l: (l * 100) ^ 0 };
     };
 
     Color.prototype.toHEX = function(val) {
-        return (!val) ?
-            '#' + util.byte(this.r) + util.byte(this.g) + util.byte(this.b)
-            :
-            +('0x' + util.byte(this.r) + util.byte(this.g) + util.byte(this.b));
+        if (!val) return '#' + util.byte(this.r) + util.byte(this.g) + util.byte(this.b);
+        else return [util.byte(this.r), util.byte(this.g), util.byte(this.b) ];
     };
 
     Color.prototype.toRGB = function(val) {
-        return (!val) ?
-            color.formatRGB(this.r, this.g, this.b)
-            :
-            {r: this.r, g: this.g, b: this.b};
+        if (!val) return color.formatRGB(this.r, this.g, this.b);
+        else return { r: this.r, g: this.g, b: this.b };
     };
 
-    var color = new Color;
-    color.formatHSL = function(h, s, l) {
-        return 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
+    var color = new Color
+
+
+    color.formatHSL = function(hsl) {
+        return 'hsl(' + (hsl.h ^ 0) + ', ' + (hsl.s ^ 0) + '%, ' + (hsl.l ^ 0) + '%)';
     };
 
-    color.formatRGB = function(r, g, b) {
-        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    color.formatHEX = function(rgb) {
+        return ('#' + util.byte(rgb.r ^ 0) + util.byte(rgb.g ^ 0) + util.byte(rgb.b ^ 0));
     };
+
+    color.formatRGB = function(rgb) {
+        return 'rgb(' + (rgb.r ^ 0) + ', ' + (rgb.g ^ 0) + ', ' + (rgb.b ^ 0) + ')';
+    };
+
+    color.regHSL = regHSL;
+    color.regHEX = regHEX;
+    color.regRGB = regRGB;
 
     return color;
 })(this);

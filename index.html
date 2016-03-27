@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Colovely</title>
+        <title>Colovely: simple colorful HEX, RGB &amp; HSL generator</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=0.75"/>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.6, maximum-scale=1, user-scalable=no"/>
 
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-title" content="Colovely"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="#ff1744"/>
-
-        <meta name="theme-color" content="#ff1744">
-
+        <meta name="author" content="Denis Maslennikov"/>
         <meta name="description" content="Simple colorful HEX, RGB, HSL generator!"/>
         <meta name="keywords" content="colovely, colors, colours, color, colour, color inspiration, colour inspiration, random, rgb, hsl, hex, random rgb, random rgb generator, random hsl, random hsl generator random hex generator, random hex, hex generator, simple hex generator, git, github, source, source code, code"/>
 
@@ -27,7 +22,7 @@
         <link rel="stylesheet" href="./stylesheet/app.css"/>
         <script>
             (function(window){
-                document.addEventListener('DOMContentLoaded', function(){
+                window.addEventListener('load', function() {
                     document.querySelector('.preloader').className += ' loaded';
                 });
             })(this);
@@ -44,7 +39,7 @@
         </div>
         <main role="main">
             <div class="wrapper">
-                <p class="result">
+                <p class="hex">
                     <span style="font-size: .5em;">Press SPACE</span>
                 </p>
                 <div class="other">
@@ -59,7 +54,7 @@
                 <a class="github-button" href="https://github.com/nof1000/colovely" data-icon="octicon-star" data-style="mega" data-count-href="/nof1000/colovely/stargazers" data-count-api="/repos/nof1000/colovely#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star nof1000/colovely on GitHub">Star</a>
                 <a class="github-button" href="https://github.com/nof1000/colovely/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/nof1000/colovely/network" data-count-api="/repos/nof1000/colovely#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork nof1000/colovely on GitHub">Fork</a>
             </div>
-            <div class="author">
+            <div class="made">
                 <a href="//nofach.com/" target="_blank">
                     made with
                     <svg class="heart" viewBox="-8 -8 144 144">
@@ -69,13 +64,16 @@
             </div>
         </footer>
 
-        <!-- IMAGINATION OF JAVASCRIPT -->
-        <script src="./javascript/utility.js"></script>
-        <script src="./javascript/color.js"></script>
-        <script src="./javascript/app.js"></script>
-
         <!-- Twitter, Github, etc... -->
         <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+        <!-- Libraries -->
+        <script src="./javascript/libs/tactween.js"></script>
+
+        <!-- Application -->
+        <script src="./javascript/utility.js"></script>
+        <script src="./javascript/color.js"></script>
+        <script src="./javascript/app.js"></script>
     </body>
 </html>
