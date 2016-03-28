@@ -8,7 +8,7 @@ window.app = (function(window){
     }
 
     App.prototype.init = function() {
-        color.fromHEX('#ff1744');
+        var hex = hash.get('hex');
         this.elements = {
             madeHeart: $('.heart use'),
             made: $('.made a'),
@@ -17,6 +17,11 @@ window.app = (function(window){
             hex: $('.hex'),
             rgb: $('.rgb')
         };
+
+        if (color.regHEX.test(hex)) {
+            color.fromHEX(hex);
+            this.changeColor(color);
+        }
     };
 
     App.prototype.addEvents = function() {
@@ -44,10 +49,10 @@ window.app = (function(window){
         this.elements.rgb.innerHTML = color.formatRGB(obj);
     };
 
-    App.prototype.randomColor = function() {
+    App.prototype.changeColor = function(val) {
         var self = this;
         var vals = [color.toHSL(true), color.toRGB(true)];
-        color.rgb(util.rand(0, 255), util.rand(0, 255), util.rand(0, 255));
+        color.rgb(val.r, val.g, val.b);
         vals.push(color.toHSL(true), color.toRGB(true));
 
         if (vals[2].l < 50) {
@@ -67,6 +72,7 @@ window.app = (function(window){
             l: [vals[0].l, vals[2].l]
         },{
             duration: 600,
+            complete: function() { hash.set('hex', color.toHEX().slice(1)); },
             change: function(val) {
                 self.setBackgroundColor(val);
                 self.updateValues(val);
@@ -76,7 +82,13 @@ window.app = (function(window){
 
     App.prototype.onKPress = function(event) {
         var keyCode = event.keyCode || event.charCode || event.witch;
-        if (keyCode == 32) return this.randomColor();
+        if (keyCode == 32) {
+            this.changeColor({
+                r: util.rand(0, 255),
+                g: util.rand(0, 255),
+                b: util.rand(0, 255)
+            });
+        }
     };
 
     return new App();

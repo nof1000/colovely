@@ -46,7 +46,7 @@ window.color = (function(window){
         this.hsl(+val[1], +val[2], +val[3]);
     };
 
-    Color.prototype.fromHEX = function(val) {
+    Color.prototype.fromHEX = function(val, rn) {
         if (!regHEX.test(val)) return false;
         val = val.match(regHEX);
 
@@ -54,7 +54,7 @@ window.color = (function(window){
             if (val[i].length != 2) val[i] += val[i];
         }
 
-        this.rgb(+('0x' + val[1]), +('0x' + val[2]), +('0x' + val[3]));
+        return this.rgb(+('0x' + val[1]), +('0x' + val[2]), +('0x' + val[3]));
     };
 
     Color.prototype.fromRGB = function(val) {
