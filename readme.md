@@ -1,6 +1,8 @@
 # Colovely
 Simple colorful HEX, RGB & HSL generator.
 
+![promo](https://raw.githubusercontent.com/nof1000/colovely/promo/github_screen.png)
+
 ## [Live](http://colovely.nofach.com/ "nofach.com")
 > Hosted by [Github Page](https://pages.github.com/ "Github Page")
 >
