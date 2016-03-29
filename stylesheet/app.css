@@ -1,7 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
-    line-height: 1.25;
+    margin: 0; padding: 0;
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -11,23 +10,22 @@
 
 html, body {
     background: #ff1744;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     font-size: bold 18pt/100% 'quicksand', 'Open Sans', sans-serif;
     color: #fff;
     overflow: hidden;
+    transform: rotateX(0deg);
 }
 
 .preloader {
     position: fixed;
     display: flex;
     background: #ff1744;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    z-index: 99999;
+    z-index: 9;
 }
 
 .preloader.loaded {
@@ -55,13 +53,43 @@ html, body {
     animation: stroke 5s linear infinite;
 }
 
-main {
+header {
+    position: fixed;
+    display: block;
+    width: 100%;
+    left: 0; top: 0;
+    z-index: 1;
+}
+
+header .history {
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    flex: 0 0 0;
+}
+
+header .history a {
+    width: 1em; height: 2.75em;
+    margin: -0.5em 0;
+    border: solid 2pt transparent;
+    border-radius: 1em;
+    box-shadow: 0 4pt 4pt 0 rgba(0, 0, 0, 0.1);
+}
+
+header .history a.hide { display: none; }
+header .history a.focus,
+header .history a:hover { border: solid 2pt #fff; }
+
+main {
+    position: relative;
+    display: flex;
+    width: 100%; height: 100%;
     align-items: center;
     justify-content: center;
+    z-index: 0;
 }
 
 main .wrapper { position: relative; display: block; text-align: center; }
@@ -69,10 +97,8 @@ main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-transform: uppe
 
 main .other {
     position: absolute;
-    width: 200%;
-    height: 200%;
-    top: 200%;
-    right: -50%;
+    width: 200%; height: 200%;
+    top: 200%; right: -50%;
 }
 
 main .other p {
@@ -82,9 +108,10 @@ main .other p {
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 0; bottom: 0;
+    z-index: 1;
 }
 
 footer .share { float: left; margin: 1.5em; }
@@ -98,8 +125,7 @@ footer .made a {
 
 footer .heart {
     position: relative;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.5em; height: 1.5em;
     left: .1em; top: .4em;
 }
 

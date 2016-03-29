@@ -40,21 +40,15 @@ window.color = (function(window){
         } else this.rgb(255, 255, 255);
     };
 
-    Color.prototype.fromHSL = function(val) {
-        if (!regHSL.test(val)) return false;
-        val = val.match(regHSL);
-        this.hsl(+val[1], +val[2], +val[3]);
+    Color.prototype.fromHSL = function(str) {
+        if (!regHSL.test(str)) return false;
+        str = val.match(regHSL);
+        this.hsl(+str[1], +str[2], +str[3]);
     };
 
-    Color.prototype.fromHEX = function(val, rn) {
-        if (!regHEX.test(val)) return false;
-        val = val.match(regHEX);
-
-        for (var i = 1; i < val.length; i++) {
-            if (val[i].length != 2) val[i] += val[i];
-        }
-
-        return this.rgb(+('0x' + val[1]), +('0x' + val[2]), +('0x' + val[3]));
+    Color.prototype.fromHEX = function(str) {
+        var buffer = this.HEXTORGB(str);
+        if (buffer) this.rgb(buffer.r, buffer.g, buffer.b);
     };
 
     Color.prototype.fromRGB = function(val) {
@@ -122,6 +116,16 @@ window.color = (function(window){
 
     var color = new Color
 
+    color.HEXTORGB = function(str) {
+        if (!regHEX.test(str)) return false;
+        str = str.match(regHEX);
+
+        for (var i = 1; i < str.length; i++) {
+            if (str[i].length != 2) str[i] += str[i];
+        }
+
+        return { r: +('0x' + str[1]), g: +('0x' + str[2]), b: +('0x' + str[3]) };
+    };
 
     color.formatHSL = function(hsl) {
         return 'hsl(' + (hsl.h ^ 0) + ', ' + (hsl.s ^ 0) + '%, ' + (hsl.l ^ 0) + '%)';

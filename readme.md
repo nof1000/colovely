@@ -12,9 +12,9 @@ Simple colorful HEX, RGB & HSL generator.
  - [tactween](https://github.com/nof1000/tactween "tactween") — to animate text and color.
 
 ## Links
- - [Twitter](https://twitter.com/nof1000)
+ - [Instagram](https://www.instagram.com/elnofa/)
  - [Dribbble](https://dribbble.com/nof1000)
- - [Instagram](https://www.instagram.com/nof1000/)
+ - [Twitter](https://twitter.com/nof1000)
 
 ## LICENSE
 [MIT](./LICENSE "The MIT License")

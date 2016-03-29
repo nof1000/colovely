@@ -2,8 +2,9 @@ var hash = (function(window){
     'use strict';
 
     var Hash = function() {
-        window.addEventListener('hashchange', this.onChange.bind(this));
         this.hashes = {};
+
+        window.addEventListener('hashchange', this.onChange.bind(this));
         this.parse();
     };
 
@@ -16,7 +17,6 @@ var hash = (function(window){
 
     Hash.prototype.set = function(name, value) {
         this.hashes[name] = value;
-        this.update();
         return this;
     };
 
