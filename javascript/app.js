@@ -6,7 +6,6 @@ window.app = (function(window){
 
         this.init();
         this.addEvents();
-
     }
 
     App.prototype.init = function() {
@@ -29,7 +28,7 @@ window.app = (function(window){
     };
 
     App.prototype.addEvents = function() {
-        document.addEventListener('keypress', this.onKPress.bind(this));
+        document.addEventListener('keydown', this.onKDown.bind(this));
     };
 
     App.prototype.setBackgroundColor = function(rgb) {
@@ -81,8 +80,6 @@ window.app = (function(window){
                 hash.update();
                 if (history) colorStore.add(color.formatHEX(vals[3]).slice(1));
             },
-            complete: function() {
-            },
             change: function(val) {
                 self.setBackgroundColor(val);
                 self.updateValues(val);
@@ -90,19 +87,22 @@ window.app = (function(window){
         });
     };
 
-    App.prototype.onKPress = function(event) {
+    App.prototype.onKDown = function(event) {
         var keyCode = event.keyCode || event.charCode || event.witch;
-
         if (keyCode == 32) {
             this.changeColor({
                 r: util.rand(0, 255),
                 g: util.rand(0, 255),
                 b: util.rand(0, 255)
             }, true);
-        } else if (keyCode == 97 || keyCode == 100) {
-            var pos = (keyCode == 97) ? colorStore.position - 1 : colorStore.position + 1;
+        } else if ((keyCode == 65 || keyCode == 37) || (keyCode == 68 || keyCode == 39)) {
+            var pos = (keyCode == 65 || keyCode == 37) ? colorStore.position - 1 : colorStore.position + 1;
             colorStore.setFocus(pos);
         }
+    };
+
+    App.prototype.onTouch = function(event) {
+
     };
 
     return new App();
