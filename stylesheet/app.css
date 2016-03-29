@@ -17,6 +17,8 @@ html, body {
     transform: rotateX(0deg);
 }
 
+
+
 .preloader {
     position: fixed;
     display: flex;
@@ -94,6 +96,7 @@ main {
 
 main .wrapper { position: relative; display: block; text-align: center; }
 main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-transform: uppercase; }
+main .wrapper p .mobile { display: none; }
 
 main .other {
     position: absolute;

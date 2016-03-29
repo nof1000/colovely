@@ -3,6 +3,7 @@ window.app = (function(window){
 
     var App = function() {
         this.elements = null;
+        this.touch = null;
 
         this.init();
         this.addEvents();
@@ -29,6 +30,9 @@ window.app = (function(window){
 
     App.prototype.addEvents = function() {
         document.addEventListener('keydown', this.onKDown.bind(this));
+
+        document.addEventListener('touchstart', this.onTouchStart.bind(this));
+        document.addEventListener('touchend', this.onTouchEnd.bind(this));
     };
 
     App.prototype.setBackgroundColor = function(rgb) {
@@ -89,6 +93,9 @@ window.app = (function(window){
 
     App.prototype.onKDown = function(event) {
         var keyCode = event.keyCode || event.charCode || event.witch;
+
+        event.preventDefault();
+
         if (keyCode == 32) {
             this.changeColor({
                 r: util.rand(0, 255),
@@ -101,7 +108,25 @@ window.app = (function(window){
         }
     };
 
-    App.prototype.onTouch = function(event) {
+    App.prototype.onTouchStart = function(event) {
+        this.touch = event.changedTouches[0];
+    };
+
+    App.prototype.onTouchEnd = function(event) {
+        var result = event.changedTouches[0];
+        var xAbs = Math.abs(this.touch.clientX - result.clientX);
+
+        if (xAbs > 80) {
+            if (this.touch.clientX > result.clientX) {
+                this.changeColor({
+                    r: util.rand(0, 255),
+                    g: util.rand(0, 255),
+                    b: util.rand(0, 255)
+                }, true);
+            } else {
+                colorStore.setFocus(colorStore.position - 1);
+            }
+        }
 
     };
 

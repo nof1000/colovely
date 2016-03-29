@@ -4,7 +4,7 @@
         <title>Colovely</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.6, maximum-scale=1, user-scalable=no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=2.0, user-scalable=no" minimal-ui/>
 
         <meta name="author" content="Denis Maslennikov"/>
         <meta name="description" content="Simple colorful HEX, RGB &amp; HSL generator!"/>
@@ -15,11 +15,19 @@
         <meta property="og:description" content="Simple colorful HEX, RGB, HSL generator!" />
         <meta property="og:url" content="http://colovely.nofach.com" />
 
+        <!-- iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+        <!-- Android -->
+        <meta name="theme-color" content="#222"/>
+        <meta name="mobile-web-app-capable" content="yes">
+
         <link rel="shortcut icon" href="./favicon.png">
 
         <link rel="stylesheet" href="./stylesheet/animations.css"/>
         <link rel="stylesheet" href="./stylesheet/fonts.css"/>
         <link rel="stylesheet" href="./stylesheet/app.css"/>
+        <link rel="stylesheet" href="./stylesheet/mobile.css"/>
         <script>
             (function(window){
                 window.addEventListener('load', function() {
@@ -43,7 +51,8 @@
         <main role="main">
             <div class="wrapper">
                 <p class="hex">
-                    <span style="font-size: .5em;">Press SPACE</span>
+                    <span class="standalone">Press SPACE</span>
+                    <span class="mobile">Swipe Left!</span>
                 </p>
                 <div class="other">
                     <p class="hsl"><span style="font-size: .75em;">Simple colorful generator.</span></p>
