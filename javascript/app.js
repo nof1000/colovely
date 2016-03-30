@@ -33,6 +33,10 @@ window.app = (function(window){
 
         document.addEventListener('touchstart', this.onTouchStart.bind(this));
         document.addEventListener('touchend', this.onTouchEnd.bind(this));
+
+        this.elements.hsl.addEventListener('click', this.onSelection.bind(this));
+        this.elements.hex.addEventListener('click', this.onSelection.bind(this));
+        this.elements.rgb.addEventListener('click', this.onSelection.bind(this));
     };
 
     App.prototype.setBackgroundColor = function(rgb) {
@@ -89,6 +93,20 @@ window.app = (function(window){
                 self.updateValues(val);
             }
         });
+    };
+
+    App.prototype.onSelection = function(event) {
+        var range;
+        if (document.body.createTextRange) {
+            range = document.body.createTextRange();
+            range.moveToElementText(event.target);
+            selection.addRange(range);
+        } else if (window.getSelection) {
+            range = document.createRange();
+            range.selectNodeContents(event.target);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+        }
     };
 
     App.prototype.onKDown = function(event) {

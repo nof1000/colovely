@@ -101,6 +101,10 @@ main .wrapper p svg { display: inline; width: 4em; margin-left: 0.5em; }
 main .wrapper p .standalone { font-size: 0.5em; }
 main .wrapper p .mobile { display: none; }
 
+main .wrapper p::-moz-selection { background: rgba(0,0,0,0.15); color: #fff; }
+main .wrapper p::selection { background: rgba(0,0,0,0.15); color: #fff; }
+
+
 main .other {
     position: absolute;
     width: 200%; height: 200%;
