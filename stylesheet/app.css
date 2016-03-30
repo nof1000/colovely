@@ -14,10 +14,7 @@ html, body {
     font-size: bold 18pt/100% 'quicksand', 'Open Sans', sans-serif;
     color: #fff;
     overflow: hidden;
-    transform: rotateX(0deg);
 }
-
-
 
 .preloader {
     position: fixed;
@@ -71,6 +68,7 @@ header .history {
     align-items: center;
     justify-content: space-around;
     flex: 0 0 0;
+    transition:
 }
 
 header .history a {
