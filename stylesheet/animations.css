@@ -4,6 +4,11 @@
     100% { stroke-dashoffset: 0; fill: rgba(255, 255, 255, 1); }
 }
 
+@keyframes intro-logo {
+    from { fill: rgba(255, 255, 255, 0); }
+    to { fill: rgba(255, 255, 255, 1); }
+}
+
 @keyframes intro-loaded {
     from { opacity: 1; filter: alpha(opacity=100); margin-top: 0; }
     to { opacity: 0; filter: alpha(opacity=0); display: none; margin-top: -100%; }

@@ -32,9 +32,12 @@ html, body {
     animation-fill-mode: forwards;
 }
 
-.preloader .logo { width: 16em; }
-.preloader .logo .elem {
-    fill: rgba(255, 255, 255, 0);
+.preloader .logo { width: 6em; }
+.preloader .logo .elem { fill: #fff; animation: intro-logo 0.75s ease-in-out; animation-fill-mode: forwards; }
+
+.preloader .text { width: 10em;}
+.preloader .text .elem {
+    fill: transparent;
     stroke: #fff;
     stroke-width: 0.5;
     stroke-dashoffset: 400;
@@ -43,7 +46,7 @@ html, body {
     animation-fill-mode: forwards;
 }
 
-.preloader .wait { width: 2em; }
+.preloader .wait { position: relative; width: 1.75em; bottom: -4em; }
 .preloader .wait .elem {
     fill: transparent;
     stroke: #fff;
