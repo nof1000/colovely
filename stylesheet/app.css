@@ -1,3 +1,45 @@
+@-webkit-keyframes intro {
+    0% { stroke-dashoffset: 400; }
+    75% { fill: rgba(255, 255, 255, 1); }
+    100% { stroke-dashoffset: 0; fill: rgba(255, 255, 255, 1); }
+}
+
+@keyframes intro {
+    0% { stroke-dashoffset: 400; }
+    75% { fill: rgba(255, 255, 255, 1); }
+    100% { stroke-dashoffset: 0; fill: rgba(255, 255, 255, 1); }
+}
+
+@-webkit-keyframes intro-logo {
+    from { fill: rgba(255, 255, 255, 0); }
+    to { fill: rgba(255, 255, 255, 1); }
+}
+
+@keyframes intro-logo {
+    from { fill: rgba(255, 255, 255, 0); }
+    to { fill: rgba(255, 255, 255, 1); }
+}
+
+@-webkit-keyframes intro-loaded {
+    from { opacity: 1; filter: alpha(opacity=100); margin-top: 0; }
+    to { opacity: 0; filter: alpha(opacity=0); display: none; margin-top: -100%; }
+}
+
+@keyframes intro-loaded {
+    from { opacity: 1; filter: alpha(opacity=100); margin-top: 0; }
+    to { opacity: 0; filter: alpha(opacity=0); display: none; margin-top: -100%; }
+}
+
+@-webkit-keyframes stroke {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 800; }
+}
+
+@keyframes stroke {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 800; }
+}
+
 * {
     margin: 0; padding: 0;
     line-height: 1;
@@ -11,46 +53,64 @@
 html, body {
     background: #ff1744;
     width: 100%; height: 100%;
-    font-size: bold 18pt/100% 'quicksand', 'Open Sans', sans-serif;
-    color: #fff;
     overflow: hidden;
-    transform: rotateX(0deg);
+    font-size: bold 18pt/100% 'quicksand', sans-serif;
+    color: #fff;
 }
 
 .preloader {
     position: fixed;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     background: #ff1744;
     width: 100%; height: 100%;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     z-index: 9;
 }
 
 .preloader.loaded {
-    animation: intro-loaded 1s ease-in-out;
-    animation-fill-mode: forwards;
+    -webkit-animation: intro-loaded 1s ease-in-out;
+            animation: intro-loaded 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 
-.preloader .logo { width: 16em; }
-.preloader .logo .elem {
-    fill: rgba(255, 255, 255, 0);
+.preloader .logo { width: 6em; }
+.preloader .logo .elem { fill: #fff; -webkit-animation: intro-logo 0.75s ease-in-out; animation: intro-logo 0.75s ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+
+.preloader .text { width: 10em;}
+.preloader .text .elem {
+    fill: transparent;
     stroke: #fff;
     stroke-width: 0.5;
     stroke-dashoffset: 400;
     stroke-dasharray: 400;
-    animation: intro 1.25s ease-in-out;
-    animation-fill-mode: forwards;
+    -webkit-animation: intro 1.25s ease-in-out;
+            animation: intro 1.25s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 
-.preloader .wait { width: 2em; }
+.preloader .wait { position: relative; width: 1.75em; bottom: -4em; }
 .preloader .wait .elem {
     fill: transparent;
     stroke: #fff;
     stroke-width: 10;
     stroke-dasharray: 200;
-    animation: stroke 5s linear infinite;
+    -webkit-animation: stroke 5s linear infinite;
+            animation: stroke 5s linear infinite;
 }
 
 header {
@@ -63,13 +123,25 @@ header {
 
 header .history {
     position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-    flex: 0 0 0;
-    transition:
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 0;
+        -ms-flex: 0 0 0;
+            flex: 0 0 0;
+    -webkit-flex-flow: row nowrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 }
 
 header .history a {
@@ -78,24 +150,43 @@ header .history a {
     border: solid 2pt transparent;
     border-radius: 1em;
     box-shadow: 0 4pt 4pt 0 rgba(0, 0, 0, 0.1);
+    -webkit-transition: -webkit-transform 0.25s;
+    transition: -webkit-transform 0.25s;
+    transition: transform 0.25s;
+    transition: transform 0.25s, -webkit-transform 0.25s;
 }
 
 header .history a.hide { display: none; }
 header .history a.focus,
-header .history a:hover { border: solid 2pt #fff; }
+header .history a:hover { border: solid 2pt #fff; -webkit-transform: scale(1.3, 1.3); transform: scale(1.3, 1.3) }
 
 main {
     position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     width: 100%; height: 100%;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     z-index: 0;
 }
 
 main .wrapper { position: relative; display: block; text-align: center; }
-main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-transform: uppercase; }
+main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-align: center; text-transform: uppercase; }
+main .wrapper p svg { display: inline; width: 4em; margin-left: 0.5em; }
+main .wrapper p .standalone { font-size: 0.5em; }
 main .wrapper p .mobile { display: none; }
+
+main .wrapper p::-moz-selection { background: rgba(0,0,0,0.15); color: #fff; }
+main .wrapper p::selection { background: rgba(0,0,0,0.15); color: #fff; }
+
 
 main .other {
     position: absolute;
@@ -111,20 +202,21 @@ main .other p {
 
 footer {
     position: fixed;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     width: 100%;
     left: 0; bottom: 0;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     z-index: 1;
 }
 
-footer .share { float: left; margin: 1.5em; }
-
-footer .made { float: right; margin: 1.5em; }
-footer .made a {
-    text-decoration: none;
-    font: bold 1em 'quicksand', sans-serif;
-    color: #fff;
-}
-
+footer div { margin: 1.25em; }
+footer .made a { font: bold 1em 'quicksand', sans-serif; text-decoration: none; color: #fff; }
 footer .heart {
     position: relative;
     width: 1.5em; height: 1.5em;
@@ -136,11 +228,33 @@ footer .heart .elem {
     stroke: #fff;
     stroke-width: 14;
     stroke-dasharray: 400;
-    animation: stroke 5s ease infinite;
+    -webkit-animation: stroke 5s ease infinite;
+            animation: stroke 5s ease infinite;
 }
 
 footer .made a:hover { color: black; }
-footer .made a:hover .elem { fill: white; animation: none; }
+footer .made a:hover .elem { fill: white; -webkit-animation: none; animation: none; }
 
 footer .made a.black .elem { stroke: black; }
-footer .made a.black:hover .elem { fill: black; animation: none; }
+footer .made a.black:hover .elem { fill: black; -webkit-animation: none; animation: none; }
+
+@font-face {
+    font-family: 'quicksand';
+    src: url('../asset/font/quicksand-bold.eot');
+    src: url('../asset/font/quicksand-bold.eot?#iefix') format('embedded-opentype'),
+    url('../asset/font/quicksand-bold.woff2') format('woff2'),
+    url('../asset/font/quicksand-bold.woff') format('woff'),
+    url('../asset/font/quicksand-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    main .wrapper p { font-size: 3em; }
+    main .wrapper p .standalone { display: none; }
+    main .wrapper p .mobile { display: block; font-size: 1em; }
+    main .other p { font-size: 1.5em; }
+
+    footer .share { margin: 1em; }
+    footer .made { margin: 1em; }
+}

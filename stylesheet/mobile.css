@@ -1,9 +1,0 @@
-@media (max-width: 768px) {
-    main .wrapper p { font-size: 3em; }
-    main .wrapper p .standalone { display: none; }
-    main .wrapper p .mobile { display: block; font-size: 1em; }
-    main .other p { font-size: 1.5em; }
-
-    footer .share { margin: 1em; }
-    footer .made { margin: 1em; }
-}
