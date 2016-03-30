@@ -180,7 +180,7 @@ main {
 
 main .wrapper { position: relative; display: block; text-align: center; }
 main .wrapper p { font: bold 4.5em 'quicksand', sans-serif; text-align: center; text-transform: uppercase; }
-main .wrapper p svg { display: inline; width: 4em; margin-left: 0.5em; }
+main .wrapper p svg { display: inline; width: 4em; margin-left: 0.5em; margin-right: 0.5em; }
 main .wrapper p .standalone { font-size: 0.5em; }
 main .wrapper p .mobile { display: none; }
 
