@@ -7,8 +7,9 @@ Simple colorful HEX, RGB & HSL generator.
 > Hosted by [Github Page](https://pages.github.com/ "Github Page")
 >
 > version:
-> - **production** `1.0`
-> - **dev** `1.1` (in process)
+> - **production** `1.1`
+> - **dev** `1.1`
+> - **status** `final`
 
 ## Libraries
  - [tactween](https://github.com/nof1000/tactween "tactween") — to animate text and color.
